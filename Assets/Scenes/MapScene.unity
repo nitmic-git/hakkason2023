@@ -238,8 +238,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonPrefab: {fileID: 434157043751322489, guid: b3dc25ce4f51e704d9f0a01260f40869, type: 3}
   pointPrefab: {fileID: 3217473510265720688, guid: c0cf2afc429d13a4d9a1d0d5d86fc7d4, type: 3}
-  dx: 2
-  dy: 1
   unit: {fileID: 16065}
 --- !u!4 &210054079
 Transform:
@@ -512,7 +510,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10.55463
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -536,9 +534,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132576241}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.65, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 17.65, y: 6.69, z: -10}
+  m_LocalScale: {x: 5.738645, y: 5.738645, z: 5.738645}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
