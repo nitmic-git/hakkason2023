@@ -13,6 +13,7 @@ public class mapButton : MonoBehaviour, IPointerClickHandler
             GameMane.playerMapPos = new Vector2Int(GameMane.playerMapPos.x + 1,MapGene.nextYPos[GameMane.playerMapPos.x, GameMane.playerMapPos.y, 0]);
             Debug.Log("1");
             MapGene.deleteButton();
+            
         }
         else if (buttonName == "button2")
         {
@@ -24,6 +25,36 @@ public class mapButton : MonoBehaviour, IPointerClickHandler
         {
             GameMane.playerMapPos = new Vector2Int(GameMane.playerMapPos.x + 1, MapGene.nextYPos[GameMane.playerMapPos.x, GameMane.playerMapPos.y, 2]);
             Debug.Log("3");
+            MapGene.deleteButton();
+        }
+        else if(buttonName=="Mt")
+        {
+            if(GameMane.playerMapPos.y==5)
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    if (MapGene.playerPathMt[GameMane.playerMapPos.x, 5,GameMane.playerMapPos.x+ i, 6])
+                    {
+                        GameMane.playerMapPos = new Vector2Int(GameMane.playerMapPos.x + i, 6);
+                    }
+                }
+                Debug.Log("5");
+
+            }
+            else if (GameMane.playerMapPos.y == 6)
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    if (MapGene.playerPathMt[GameMane.playerMapPos.x, 6, GameMane.playerMapPos.x + i, 5])
+                    {
+                        GameMane.playerMapPos = new Vector2Int(GameMane.playerMapPos.x + i, 5);
+                    }
+                }
+                Debug.Log("6");
+
+            }
+
+            Debug.Log("Mt");
             MapGene.deleteButton();
         }
         Debug.Log("aa");

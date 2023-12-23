@@ -7,24 +7,31 @@ public class MapGene : MonoBehaviour
     public static bool[,] pointExist = new bool[24, 7];
 
 
-    public static bool[,,] playerPath = new bool[24, 7, 5];
+    public static bool[,,] playerPath = new bool[24, 7, 7];
+    public static bool[,,,] playerPathMt = new bool[24, 7,29, 7];
 
     [SerializeField] GameObject buttonPrefab;
-    public static GameObject[] buttons =new GameObject[3];
+    public static GameObject[] buttons =new GameObject[5];
     public static int[,,] nextYPos = new int[24, 7, 5]; 
     [SerializeField] GameObject pointPrefab;
-    [SerializeField] float dx;
-    [SerializeField] float dy;
+    public static float dx=2;
+    public static float dy=1;
     [SerializeField] GameObject unit;
+    public static Vector3[] mountPos = new Vector3[20];
+    public static Vector2Int[] mountGrid = new Vector2Int[20];
+
 
     private void Start()
     {
         pointExist[0, 2] = true;
         pointExist[1, 1] = true; pointExist[1, 3] = true;
         playerPath[0, 2, 1] = true; playerPath[0, 2, 3] = true;
+        pointExist[2, 5] = true; pointExist[22, 5] = true;
         pointGene();
+        pointGeneMt();
         DrawLine(new Vector3(0, 2 * dy, 0), new Vector3(1 * dx, dy, 0));
         DrawLine(new Vector3(0, 2 * dy, 0), new Vector3(1 * dx, 3 * dy, 0));
+        
         
     }
 
@@ -102,6 +109,106 @@ public class MapGene : MonoBehaviour
             }
         }
         lineGene();
+
+    }
+
+    public void pointGeneMt()
+    {
+        
+        
+        int j = 0;
+        
+        for (int i = 0; i < pointExist.GetLength(0)-7;)
+        {
+            int ran2_4 = Random.Range(2, 4);
+            i += ran2_4;
+            j++;
+            pointExist[2+i, 5+(j%2)] = true;
+            mountPos[j - 1] = new Vector3((2 + i) * dx, (5 + (j % 2)) * dy, 0);
+            mountGrid[j-1]=new Vector2Int((2 + i) , (5 + (j % 2)));
+            
+
+        }
+
+
+
+        DrawLine(new Vector3(1 * dx, 3 * dy, 0), new Vector3(2 * dx, 5 * dy, 0));
+        for (int i = 0; i < mountGrid.Length; i++)
+        {
+            if(mountGrid[i].y==5)
+            {
+                int Max=4;
+                int k = 4;
+                bool running=true;
+                do
+                {
+                    if (pointExist[mountGrid[i].x - 1, k] == true)
+                    {
+                        Max = k;
+                        running = false;
+                    }
+                    k--;
+                } while (running);
+                playerPath[mountGrid[i].x - 1, Max, 5] = true;
+                DrawLine(new Vector3(mountPos[i].x - dx, Max*dy, 0), mountPos[i]);
+
+                running = true;
+                k = 4;
+                do
+                {
+                    if (pointExist[mountGrid[i].x + 1, k] == true)
+                    {
+                        Max = k;
+                        running = false;
+                    }
+                    k--;
+                } while (running);
+                playerPath[mountGrid[i].x , 5, Max] = true;
+                DrawLine( mountPos[i],new Vector3(mountPos[i].x + dx, Max * dy, 0));
+            }
+        }
+        int Max_ = 4;
+        int k_ = 4;
+        bool running_ = true;
+        do
+        {
+            if (pointExist[23, k_] == true)
+            {
+                Max_ = k_;
+                running_ = false;
+            }
+            k_--;
+        } while (running_);
+        DrawLine(new Vector3(22 * dx, 5 * dy, 0), new Vector3(23 * dx, Max_ * dy, 0));
+        playerPath[22, 5, Max_] = true;
+
+
+        Instantiate(pointPrefab, new Vector3(2* dx, 5 * dy, 0), Quaternion.identity);
+        for (int i = 0; i < j; i++)
+        {
+            
+            Instantiate(pointPrefab,mountPos[i], Quaternion.identity);
+            
+        }
+        Instantiate(pointPrefab, new Vector3(22 * dx, 5 * dy, 0), Quaternion.identity);
+
+        playerPath[1, 3, 5] = true;
+        playerPathMt[2, 5, mountGrid[0].x, mountGrid[0].y] = true;
+        for (int i = 0; i < j-1; i++)
+        {
+            playerPathMt[mountGrid[i].x, mountGrid[i].y,mountGrid[i+1].x, mountGrid[i + 1].y] = true;
+        }
+        playerPathMt[mountGrid[j - 1].x, mountGrid[j - 1].y,22, 5] = true;
+
+       
+
+        DrawLine(new Vector3(2 * dx, 5 * dy, 0), mountPos[0]);
+        for (int i = 0; i < j-1; i++)
+        {
+            DrawLine(mountPos[i], mountPos[i + 1]);
+        }
+        DrawLine( mountPos[j-1],new Vector3(22 * dx, 5 * dy, 0));
+
 
     }
 
@@ -287,18 +394,44 @@ public class MapGene : MonoBehaviour
         Debug.Log(GameMane.playerMapPos);
         unit.transform.position = new Vector3(GameMane.playerMapPos.x * dx, GameMane.playerMapPos.y * dy, 0);
         int j = 1;
-        for (int i = 0; i < 5; i++)
+       
+        for (int i = 0; i < 7; i++)
         {
-            Debug.Log(i+"‚Í"+playerPath[GameMane.playerMapPos.x, GameMane.playerMapPos.y, i]);
+            Debug.Log(i + "‚Í" + playerPath[GameMane.playerMapPos.x, GameMane.playerMapPos.y, i]);
             if (playerPath[GameMane.playerMapPos.x, GameMane.playerMapPos.y, i])
             {
                 buttons[j] = Instantiate(buttonPrefab, new Vector3((GameMane.playerMapPos.x + 1) * dx, i * dy, 0), Quaternion.identity);
                 buttons[j].name = "button" + j;
-                nextYPos[GameMane.playerMapPos.x, GameMane.playerMapPos.y, j-1] = i;
-                
+                nextYPos[GameMane.playerMapPos.x, GameMane.playerMapPos.y, j - 1] = i;
+
                 j++;
             }
+            
         }
+        if (GameMane.playerMapPos.y == 5)
+        {
+            for (int i = 1; i < 5; i++)
+            {
+                if(playerPathMt[GameMane.playerMapPos.x,GameMane.playerMapPos.y, GameMane.playerMapPos.x+i, 6])
+                {
+                    buttons[j] = Instantiate(buttonPrefab, new Vector3((GameMane.playerMapPos.x + i)*dx, 6*dy, 0), Quaternion.identity);
+                    buttons[j].name = "Mt";
+                }
+            }
+        }
+        if (GameMane.playerMapPos.y == 6)
+        {
+            for (int i = 1; i < 5; i++)
+            {
+                if (playerPathMt[GameMane.playerMapPos.x, GameMane.playerMapPos.y, GameMane.playerMapPos.x + i, 5])
+                {
+                    buttons[j] = Instantiate(buttonPrefab, new Vector3((GameMane.playerMapPos.x + i) * dx, 5 * dy, 0), Quaternion.identity);
+                    buttons[j].name = "Mt";
+                }
+            }
+        }
+
+
 
 
     }
