@@ -14,12 +14,14 @@ public class MapGene : MonoBehaviour
     public static GameObject[] buttons =new GameObject[5];
     public static int[,,] nextYPos = new int[24, 7, 5]; 
     [SerializeField] GameObject pointPrefab;
-    public static float dx=2;
+    public static float dx=2.5f;
     public static float dy=1;
     [SerializeField] GameObject unit;
     public static Vector3[] mountPos = new Vector3[20];
     public static Vector2Int[] mountGrid = new Vector2Int[20];
-
+    [SerializeField] GameObject empty;
+    [SerializeField] Material lineMaterial;
+    [SerializeField] GameObject edge;
 
     private void Start()
     {
@@ -31,13 +33,57 @@ public class MapGene : MonoBehaviour
         pointGeneMt();
         DrawLine(new Vector3(0, 2 * dy, 0), new Vector3(1 * dx, dy, 0));
         DrawLine(new Vector3(0, 2 * dy, 0), new Vector3(1 * dx, 3 * dy, 0));
-        
-        
+        //edgeGene();
+        //EmptySet();
     }
 
     private void Update()
     {
         
+    }
+
+    public void edgeGene()
+    {
+        for (int i = 0; i < playerPath.GetLength(0); i++)
+        {
+            for (int j = 0; j < playerPath.GetLength(1); j++)
+            {
+                for (int k = 0; k < playerPath.GetLength(2); k++)
+                {
+                    if(playerPath[i,j,k])
+                    {
+                        float len = Mathf.Sqrt(1 + (k - j) * (k - j));
+                        float angle = 0;
+                        if (k-j<=0)
+                        {
+                           angle = -Vector3.Angle(new Vector3(dx, 0, 0), new Vector3(dx, (k - j) * dy, 0));
+                        }
+                        else
+                        {
+                           angle = Vector3.Angle(new Vector3(dx, 0, 0), new Vector3(dx, (k - j) * dy, 0));
+                        }
+                        
+                        GameObject ed = Instantiate(edge, new Vector3((float)((i + 0.5) * dx), ((j + k) * 0.5f) * dy, 0), Quaternion.identity);
+                        ed.transform.localScale = new Vector3(len, 1, 1);
+                        ed.transform.Rotate(new Vector3(0, 0, angle));
+                    }
+                }
+            }
+        }
+    }
+
+    public void EmptySet()
+    {
+        for (int i = 0; i < pointExist.GetLength(0); i++)
+        {
+            for (int j = 0; j < pointExist.GetLength(1); j++)
+            {
+                if(!pointExist[i,j])
+                {
+                    Instantiate(empty, new Vector3(i * dx,j * dy, 0), Quaternion.identity);
+                }
+            }
+        }
     }
 
     public void pointGene()
@@ -102,9 +148,11 @@ public class MapGene : MonoBehaviour
             }
             for (int j = 0; j < 5; j++)
             {
+                
                 if (pointExist[i, j])
                 {
-                    Instantiate(pointPrefab, new Vector3(i * dx, j * dy, 0), Quaternion.identity);
+                    int rand360 = Random.Range(0, 360);
+                    Instantiate(pointPrefab, new Vector3(i * dx, j * dy, 0) + Vector3.back, Quaternion.identity).transform.Rotate(new Vector3(60f, 0f, (float)rand360)); 
                 }
             }
         }
@@ -183,14 +231,14 @@ public class MapGene : MonoBehaviour
         playerPath[22, 5, Max_] = true;
 
 
-        Instantiate(pointPrefab, new Vector3(2* dx, 5 * dy, 0), Quaternion.identity);
+        Instantiate(pointPrefab, new Vector3(2* dx, 5 * dy, 0)+Vector3.back, Quaternion.identity).transform.Rotate(new Vector3(80f, 0f, 0f)); 
         for (int i = 0; i < j; i++)
         {
-            
-            Instantiate(pointPrefab,mountPos[i], Quaternion.identity);
+            int rand360 = Random.Range(0, 360);
+            Instantiate(pointPrefab,mountPos[i] + Vector3.back, Quaternion.identity).transform.Rotate(new Vector3(80f, 0f, (float)rand360)); 
             
         }
-        Instantiate(pointPrefab, new Vector3(22 * dx, 5 * dy, 0), Quaternion.identity);
+        Instantiate(pointPrefab, new Vector3(22 * dx, 5 * dy, 0) + Vector3.back, Quaternion.identity).transform.Rotate(new Vector3(80f, 0f, 0f));
 
         playerPath[1, 3, 5] = true;
         playerPathMt[2, 5, mountGrid[0].x, mountGrid[0].y] = true;
@@ -378,15 +426,19 @@ public class MapGene : MonoBehaviour
         // Line Renderer コンポーネントを追加
         LineRenderer lineRenderer = lineObject.AddComponent<LineRenderer>();
 
-
+        lineRenderer.material = lineMaterial;
         lineRenderer.positionCount = 2;
         lineRenderer.SetPosition(0, startPoint);
         lineRenderer.SetPosition(1, endPoint);
+        lineRenderer.textureMode = LineTextureMode.Tile;
 
         // その他のラインレンダラーの設定（必要に応じて）
         lineRenderer.startWidth = 0.1f;
         lineRenderer.endWidth = 0.1f;
-        lineRenderer.material.color = Color.red;
+
+        lineRenderer.startColor = Color.red;
+        lineRenderer.endColor = Color.red;
+
     }
 
     public void SelectPath()
