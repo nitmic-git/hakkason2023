@@ -9,6 +9,8 @@ public class unitMane : MonoBehaviour
     [SerializeField] GameObject unit;
     [SerializeField] GameObject ground;
     [SerializeField] stageMane stageMane;
+    public Animator animator; // InspectorでAnimatorをアサインする
+    public string targetAnimationName = "YourAnimationClipName";
 
     private int section=0;
     private Vector3 direction;
@@ -41,7 +43,7 @@ public class unitMane : MonoBehaviour
            
             direction = (stageMane.path[section] - stageMane.path[section - 1]).normalized;
 
-            unit.transform.position += direction * speed;
+            unit.transform.position += direction * speed*GameMane.playerSpeed/10*Time.deltaTime;
         }
 
         
@@ -61,7 +63,22 @@ public class unitMane : MonoBehaviour
             oldSection = section;
         }
 
-       
+        if (animator != null)
+        {
+            // アニメーションクリップの速度を変更
+            animator.speed = GameMane.playerSpeed/10f;
+
+            
+        }
+
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            GameMane.playerSpeed++;
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            GameMane.playerSpeed--;
+        }
 
     }
 
