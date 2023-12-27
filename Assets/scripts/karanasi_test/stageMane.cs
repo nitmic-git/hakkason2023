@@ -24,6 +24,8 @@ public class stageMane : MonoBehaviour
 
     [SerializeField] Text[] paraText;
 
+    public static int count = 0; 
+
     
     
 
@@ -61,7 +63,7 @@ public class stageMane : MonoBehaviour
     {
         back.transform.position =new Vector3( cam.transform.position.x,cam.transform.position.y,back.transform.position.z);
 
-       
+        UIMane();
     }
 
     public void UIMane()
