@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class unitMane : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class unitMane : MonoBehaviour
     [SerializeField] GameObject unit;
     [SerializeField] GameObject ground;
     [SerializeField] stageMane stageMane;
+    [SerializeField] Image hpBar;
+    [SerializeField] Image mpBar;
+    [SerializeField] float maxMp = 30;
+    [SerializeField] float addMpInterval=2;
+
     public Animator animator; // Inspector‚ÅAnimator‚ðƒAƒTƒCƒ“‚·‚é
     public string targetAnimationName = "YourAnimationClipName";
 
@@ -16,15 +22,21 @@ public class unitMane : MonoBehaviour
     private Vector3 direction;
     private bool end = false;
     private int oldSection;
+    private int maxHp;
+    private int mp=0;
 
     private void Start()
     {
+        maxHp = GameMane.playerHp;
+        mpBar.fillAmount = 0;
         unit.transform.position = stageMane.path[0];
+        StartCoroutine(AddMp());
     }
 
     private void Update()
     {
-
+        Debug.Log(GameMane.playerHp);
+        BarMane();
         //groundGene();
         if (stageMane.path[section].x<=unit.transform.position.x&&section< stageMane.path.Length-1)
         {
@@ -80,6 +92,28 @@ public class unitMane : MonoBehaviour
             GameMane.playerSpeed--;
         }
 
+    }
+
+    public void BarMane()
+    {
+        hpBar.fillAmount = (float)GameMane.playerHp / (float)maxHp;
+        mpBar.fillAmount = (float)mp / (float)maxMp;
+    }
+
+    public IEnumerator  AddMp()
+    {
+        while (true)
+        {
+
+
+            yield return new WaitForSeconds(addMpInterval);
+            if(mp<=maxMp-1)
+            {
+                mp++;
+            }
+            
+           
+        }
     }
 
     public void groundGene()
