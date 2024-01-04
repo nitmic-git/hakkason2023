@@ -20,10 +20,11 @@ public class enemy1Mane : MonoBehaviour
     {
         if (unit.transform.position.x+GameMane.range>=transform.position.x&&!oneTime)
         {
-            
+            Debug.Log("ÚG");
             oneTime = true;
             Hp -= GameMane.playerSpeed;
-         
+            Debug.Log(Hp);
+            Debug.Log(GameMane.money);
             if(Hp>=1)
             {
                 GameMane.playerHp -= GameMane.attack_e1;
