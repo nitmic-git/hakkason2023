@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d77a491af8e8256408d5514e93c4d886
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - SelectionWindow: {fileID: 3892786884351616776, guid: 57ebde81833ae484eb230d007ae6c942, type: 3}
+  - enemyDataBase: {fileID: 11400000, guid: a2d5a606556c281468ff660953bd283d, type: 2}
+  - contentRectTransform: {instanceID: 0}
+  - buttonCell: {fileID: 9031145590238081357, guid: 18894f0839281cf4b8cf8f18bb757dd5, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
