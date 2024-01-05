@@ -10,11 +10,6 @@ public class unitMane : MonoBehaviour
     [SerializeField] GameObject unit;
     [SerializeField] GameObject ground;
     [SerializeField] stageMane stageMane;
-    [SerializeField] Image hpBar;
-    [SerializeField] Image mpBar;
-    [SerializeField] float maxMp = 30;
-    [SerializeField] float addMpInterval=2;
-
     public Animator animator; // InspectorでAnimatorをアサインする
     public string targetAnimationName = "YourAnimationClipName";
 
@@ -22,21 +17,28 @@ public class unitMane : MonoBehaviour
     private Vector3 direction;
     private bool end = false;
     private int oldSection;
-    private int maxHp;
-    private int mp=0;
-
+    private float mp = 0;
+    [SerializeField] float maxMp=20;
+    private float hp;
+    private float maxHp;
+    [SerializeField] Image hpBar;
+    [SerializeField] Image mpBar;
+    [SerializeField] float addMpInterval;
+ 
     private void Start()
     {
         maxHp = GameMane.playerHp;
-        mpBar.fillAmount = 0;
         unit.transform.position = stageMane.path[0];
-        StartCoroutine(AddMp());
+        StartCoroutine(addMp());
     }
 
     private void Update()
     {
-        Debug.Log(GameMane.playerHp);
-        BarMane();
+        hp = GameMane.playerHp;
+
+        barMane(hpBar, maxHp, hp);
+        barMane(mpBar, maxMp, mp);
+
         //groundGene();
         if (stageMane.path[section].x<=unit.transform.position.x&&section< stageMane.path.Length-1)
         {
@@ -55,7 +57,7 @@ public class unitMane : MonoBehaviour
            
             direction = (stageMane.path[section] - stageMane.path[section - 1]).normalized;
 
-            unit.transform.position += direction * speed*GameMane.playerSpeed/10*Time.deltaTime;
+            unit.transform.position += direction * speed*(3+(GameMane.playerSpeed-3)/8)/20*Time.deltaTime;
         }
 
         
@@ -78,7 +80,7 @@ public class unitMane : MonoBehaviour
         if (animator != null)
         {
             // アニメーションクリップの速度を変更
-            animator.speed = GameMane.playerSpeed/10f;
+            animator.speed = (6+(GameMane.playerSpeed-6)/5)/10f;
 
             
         }
@@ -94,25 +96,23 @@ public class unitMane : MonoBehaviour
 
     }
 
-    public void BarMane()
+    public void barMane(Image bar,float max,float current)
     {
-        hpBar.fillAmount = (float)GameMane.playerHp / (float)maxHp;
-        mpBar.fillAmount = (float)mp / (float)maxMp;
+        bar.fillAmount = current / max;
+       
     }
 
-    public IEnumerator  AddMp()
+    public IEnumerator addMp()
     {
-        while (true)
+        while(true)
         {
-
-
             yield return new WaitForSeconds(addMpInterval);
-            if(mp<=maxMp-1)
+            if(mp<=maxHp-1)
             {
                 mp++;
             }
             
-           
+            
         }
     }
 
