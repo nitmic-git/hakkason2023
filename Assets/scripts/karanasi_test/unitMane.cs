@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class unitMane : MonoBehaviour
 {
@@ -16,14 +17,27 @@ public class unitMane : MonoBehaviour
     private Vector3 direction;
     private bool end = false;
     private int oldSection;
-
+    private float mp = 0;
+    [SerializeField] float maxMp=20;
+    private float hp;
+    private float maxHp;
+    [SerializeField] Image hpBar;
+    [SerializeField] Image mpBar;
+    [SerializeField] float addMpInterval;
+ 
     private void Start()
     {
+        maxHp = GameMane.playerHp;
         unit.transform.position = stageMane.path[0];
+        StartCoroutine(addMp());
     }
 
     private void Update()
     {
+        hp = GameMane.playerHp;
+
+        barMane(hpBar, maxHp, hp);
+        barMane(mpBar, maxMp, mp);
 
         //groundGene();
         if (stageMane.path[section].x<=unit.transform.position.x&&section< stageMane.path.Length-1)
@@ -43,7 +57,7 @@ public class unitMane : MonoBehaviour
            
             direction = (stageMane.path[section] - stageMane.path[section - 1]).normalized;
 
-            unit.transform.position += direction * speed*GameMane.playerSpeed/10*Time.deltaTime;
+            unit.transform.position += direction * speed*(3+(GameMane.playerSpeed-3)/8)/20*Time.deltaTime;
         }
 
         
@@ -66,7 +80,7 @@ public class unitMane : MonoBehaviour
         if (animator != null)
         {
             // アニメーションクリップの速度を変更
-            animator.speed = GameMane.playerSpeed/10f;
+            animator.speed = (6+(GameMane.playerSpeed-6)/5)/10f;
 
             
         }
@@ -80,6 +94,26 @@ public class unitMane : MonoBehaviour
             GameMane.playerSpeed--;
         }
 
+    }
+
+    public void barMane(Image bar,float max,float current)
+    {
+        bar.fillAmount = current / max;
+       
+    }
+
+    public IEnumerator addMp()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(addMpInterval);
+            if(mp<=maxHp-1)
+            {
+                mp++;
+            }
+            
+            
+        }
     }
 
     public void groundGene()
