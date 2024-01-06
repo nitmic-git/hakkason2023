@@ -57,7 +57,7 @@ public class unitMane : MonoBehaviour
            
             direction = (stageMane.path[section] - stageMane.path[section - 1]).normalized;
 
-            unit.transform.position += direction * speed*(3+(GameMane.playerSpeed-3)/8)/20*Time.deltaTime;
+            unit.transform.position += direction * speed*(10+(GameMane.playerSpeed-10)/8)/20*Time.deltaTime;
         }
 
         
