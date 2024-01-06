@@ -33,6 +33,7 @@ public class ButtonCell : MonoBehaviour{
         foreach(GameObject obj in rootObjects){
             if(obj.name == "Canvas"){
                 canvas = obj.GetComponent<Transform>();
+                break;
             }
         }
 
@@ -42,9 +43,10 @@ public class ButtonCell : MonoBehaviour{
 
     public void OnClick(){
         //現在のInformationを検索
-        GameObject currentInformation = GameObject.Find("NonInformation");
+        GameObject currentInformation = canvas.Find("NonInformation")?.gameObject;
+
         if(currentInformation == null){
-            currentInformation = GameObject.Find("EnemyInformation");
+            currentInformation = canvas.Find("EnemyInformation").gameObject;
         }
         StartCoroutine(DestroyAndCreate(currentInformation));
     }

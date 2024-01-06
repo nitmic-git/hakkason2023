@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScrollButtonController : MonoBehaviour{
     //インスペクターで指定をする変数
@@ -92,4 +93,7 @@ public class ScrollButtonController : MonoBehaviour{
         ButtonTransform(); // 初回のボタン配置
     }
 
+    public void OnClick(){
+        //SceneManager.LoadScene("");
+    }
 }
