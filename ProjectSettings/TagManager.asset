@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Image
   - Droppablefield
+  - Enemy
   layers:
   - Default
   - TransparentFX
