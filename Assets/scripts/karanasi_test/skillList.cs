@@ -17,4 +17,11 @@ public class skillList : MonoBehaviour
         Instantiate(arrowNoGra, unit.transform.position, Quaternion.identity);
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            HolizonArrow();
+        }
+    }
 }
