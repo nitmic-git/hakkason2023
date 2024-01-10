@@ -9,37 +9,95 @@ public class Gene_Equipment : MonoBehaviour
     int speed=0;
     int def = 0;
     int money = 100;
+    //ƒXƒe[ƒ^ƒXã¸:UŒ‚A‘¬‚³Aç”õ
+    int[] debuffweapon = new int[]{ 0, 0, 0 };
+    int[] debuffarmor = new int[]{ 0, 0, 0 };
 
+    public int equipID;
 
-    public void Equip(int manager)
+    public void equip() 
     {
-        switch (manager)
+        if(equipID<21)
+        {
+            ResetStatus(true);
+            EquipFunction(equipID);
+            debuffStatus(true);
+        }
+        else
+        {
+            ResetStatus(false);
+            EquipFunction(equipID);
+            debuffStatus(false);
+        }
+    }
+
+    //‘•”õ‚ÌID‚Ì“à0`20‚Í•Ší‚ÉŠ„‚èU‚èA21`40‚Í–h‹ï‚ÉŠ„‚èU‚è
+    public void EquipFunction(int equipID)
+    {
+        switch (equipID)
         {
             case 0:
-                def += 5;
+                debuffweapon[0] = 5;
+                debuffweapon[1] = 0;
+                debuffweapon[2] = 0;
                 break;
 
             case 1:
-                def += 15;
-                break;
-
-            case 2:
-                atack = 10 + (int)Math.Round(0.1 * money);
+                debuffweapon[0] = 10 + (int)Math.Round(0.1 * money);
+                debuffweapon[1] = 0;
+                debuffweapon[2] = 0;
                 break;
 
             case 3:
-                atack += 20;
-                speed -= 10;
+                debuffweapon[0] = 20;
+                debuffweapon[1] = -10;
+                debuffweapon[2] = 0;
+                break;
+
+            case 21:
+                debuffarmor[0] = 0;
+                debuffarmor[1] = 0;
+                debuffarmor[2] = 10;
+                break;
+
+            case 22:
+                debuffarmor[0] = 0;
+                debuffarmor[1] = 0;
+                debuffarmor[2] = 30;
                 break;
         }
     }
 
     //‘•”õ•i‚ğØ‚è‘Ö‚¦‚é‚É‚»‚ê‚Ü‚Å‚Ì‘•”õ•i‚ÌŒø‰Ê‚ğ’ Á‚µ‚É‚·‚é
-    public void ResetStatus()
+    public void ResetStatus(bool isweapon)
     {
-        int atack = 0;
-        int speed = 0;
-        int def = 0;
-        int money = 100;
+        if (isweapon)
+        {
+            atack -= debuffweapon[0];
+            speed -= debuffweapon[1];
+            def -= debuffweapon[2];
+        }
+        else
+        {
+            atack -= debuffarmor[0];
+            speed -= debuffarmor[1];
+            def -= debuffarmor[2];
+        }
+    }
+
+    public void debuffStatus(bool isweapon)
+    {
+        if (isweapon)
+        {
+            atack += debuffweapon[0];
+            speed += debuffweapon[1];
+            def += debuffweapon[2];
+        }
+        else
+        {
+            atack += debuffarmor[0];
+            speed += debuffarmor[1];
+            def += debuffarmor[2];
+        }
     }
 }
