@@ -57,7 +57,7 @@ public class unitMane : MonoBehaviour
            
             direction = (stageMane.path[section] - stageMane.path[section - 1]).normalized;
 
-            unit.transform.position += direction * speed*(3+(GameMane.playerSpeed-3)/8)/20*Time.deltaTime;
+            unit.transform.position += direction * speed*(15+(GameMane.playerSpeed-7)/8)/20*Time.deltaTime;
         }
 
         
@@ -80,7 +80,7 @@ public class unitMane : MonoBehaviour
         if (animator != null)
         {
             // アニメーションクリップの速度を変更
-            animator.speed = (6+(GameMane.playerSpeed-6)/5)/10f;
+            animator.speed = (40+(GameMane.playerSpeed-4)/5)/10f;
 
             
         }

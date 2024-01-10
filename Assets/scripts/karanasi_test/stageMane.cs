@@ -50,9 +50,9 @@ public class stageMane : MonoBehaviour
                     break;
                 }
             }
-            GameObject tree= Instantiate(tree00, treePos[i], Quaternion.identity);
+            //GameObject tree= Instantiate(tree00, treePos[i], Quaternion.identity);
             float r = Random.Range(scaleMin, scaleMax)
-;            tree.transform.localScale =new Vector3 (r, r, 1);
+;          //  tree.transform.localScale =new Vector3 (r, r, 1);
         }
 
         spawn();

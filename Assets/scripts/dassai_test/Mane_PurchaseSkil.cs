@@ -6,12 +6,12 @@ using System;
 
 public class Mane_PurchaseSkil : MonoBehaviour
 {
-    //cost‚Å‚¨’l’i,ShowCost‚Í’lD‚Ì–ğŠ„,Skillpanel‚Íw“ü‚Ì”wŒi‚É‚È‚é‚â‚Â
+    //costã§ãŠå€¤æ®µ,ShowCostã¯å€¤æœ­ã®å½¹å‰²,Skillpanelã¯è³¼å…¥ã®èƒŒæ™¯ã«ãªã‚‹ã‚„ã¤
     int cost;
     public GameObject ShowCost;
     public GameObject SkillPanel;
     bool isSkillshown;
-    //‚»‚ê‚¼‚ê9ŒÂ‚ ‚é
+    //ãã‚Œãã‚Œ9å€‹ã‚ã‚‹
     List<bool> haveSkil = new List<bool>() { false, false, false, false, false, false, false, false, false };
     [SerializeField] int skilNo;
 
@@ -38,16 +38,16 @@ public class Mane_PurchaseSkil : MonoBehaviour
         }
     }
 
-    //ƒ{ƒ^ƒ“ƒNƒŠƒbƒN‚ÉƒAƒCƒeƒ€”‰ÁZ‚Æ’l’i‚ğ‘å‘Ì1.5”{‚É
+    //ãƒœã‚¿ãƒ³ã‚¯ãƒªãƒƒã‚¯æ™‚ã«ã‚¢ã‚¤ãƒ†ãƒ æ•°åŠ ç®—ã¨å€¤æ®µã‚’å¤§ä½“1.5å€ã«
     public void OnClick()
     {
         if (haveSkil[skilNo])
         {
-            Debug.Log("w“üÏ‚Å‚·");
+            Debug.Log("è³¼å…¥æ¸ˆã§ã™");
         }
         else
         {
-            Debug.Log(skilNo + "‚ª" + cost + "‚Åw“ü‚³‚ê‚½");
+            Debug.Log(skilNo + "ãŒ" + cost + "ã§è³¼å…¥ã•ã‚ŒãŸ");
             haveSkil[skilNo] = true;
             cost = (int)Math.Round(1.5 * cost);
             isSkillshown = false;
@@ -56,7 +56,7 @@ public class Mane_PurchaseSkil : MonoBehaviour
 
     void Update()
     {
-        ShowCost.GetComponent<Text>().text = cost + "‚Åw“ü";
+        ShowCost.GetComponent<Text>().text = cost + "ã§è³¼å…¥";
         SkillPanel.SetActive(isSkillshown);
     }
 }

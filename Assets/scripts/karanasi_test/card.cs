@@ -29,6 +29,6 @@ public class card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void OnPointerExit(PointerEventData eventData)
     {
         transform.DOMove(firstPos, duration).SetEase(Ease.OutCirc);
-        transform.DOScale(new Vector3(6,6,6), duration).SetEase(Ease.OutCirc);
+        transform.DOScale(new Vector3(2,2,2), duration).SetEase(Ease.OutCirc);
     }
 }

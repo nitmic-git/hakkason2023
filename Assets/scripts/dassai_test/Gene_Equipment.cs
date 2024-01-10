@@ -9,7 +9,7 @@ public class Gene_Equipment : MonoBehaviour
     int speed=0;
     int def = 0;
     int money = 100;
-    //ƒXƒe[ƒ^ƒXã¸:UŒ‚A‘¬‚³Aç”õ
+    //ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ä¸Šæ˜‡:æ”»æ’ƒã€é€Ÿã•ã€å®ˆå‚™
     int[] debuffweapon = new int[]{ 0, 0, 0 };
     int[] debuffarmor = new int[]{ 0, 0, 0 };
 
@@ -31,7 +31,7 @@ public class Gene_Equipment : MonoBehaviour
         }
     }
 
-    //‘•”õ‚ÌID‚Ì“à0`20‚Í•Ší‚ÉŠ„‚èU‚èA21`40‚Í–h‹ï‚ÉŠ„‚èU‚è
+    //è£…å‚™ã®IDã®å†…0ï½20ã¯æ­¦å™¨ã«å‰²ã‚ŠæŒ¯ã‚Šã€21ï½40ã¯é˜²å…·ã«å‰²ã‚ŠæŒ¯ã‚Š
     public void EquipFunction(int equipID)
     {
         switch (equipID)
@@ -68,7 +68,7 @@ public class Gene_Equipment : MonoBehaviour
         }
     }
 
-    //‘•”õ•i‚ğØ‚è‘Ö‚¦‚é‚É‚»‚ê‚Ü‚Å‚Ì‘•”õ•i‚ÌŒø‰Ê‚ğ’ Á‚µ‚É‚·‚é
+    //è£…å‚™å“ã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹æ™‚ã«ãã‚Œã¾ã§ã®è£…å‚™å“ã®åŠ¹æœã‚’å¸³æ¶ˆã—ã«ã™ã‚‹
     public void ResetStatus(bool isweapon)
     {
         if (isweapon)
