@@ -18,6 +18,7 @@ public class GoodsSelecter : MonoBehaviour
             Item[i].SetActive(false);
             Debug.Log(i + "が非アクティブ化");
         }
+        //抽選で4つのボタンが出現します
         selecter1 = Random.Range(0, 3);
         selecter2 = Random.Range(0, 3) + 3;
         selecter3 = Random.Range(0, 4) + 6;

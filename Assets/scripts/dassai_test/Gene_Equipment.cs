@@ -31,6 +31,7 @@ public class Gene_Equipment : MonoBehaviour
         }
     }
 
+    //装備のIDの内0～20は武器に割り振り、21～40は防具に割り振り
     public void EquipFunction(int equipID)
     {
         switch (equipID)
@@ -100,10 +101,3 @@ public class Gene_Equipment : MonoBehaviour
         }
     }
 }
-
-
-//equiparmor,equipweaponで何を装備しているかを表現し、どっかのスクリプト=>多分アイテム管理？
-//でisequipweapon,isequiparmorっていうboolでフラグ立てる。
-//武具の購入すると、その武具のIDをequiparmor/weaponに代入、それと同時に、isequipをtrueにする
-
-//装備のIDの内0～20は武器に割り振り、21～40は防具に割り振り
