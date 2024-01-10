@@ -169,9 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraTransform: {fileID: 80739638}
-  _imageWidth: 5.12
-  _coordinateX: 4.17
-  hasTransformed: 0
+  _imageWidth: 4.17
 --- !u!212 &10268489
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -354,9 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraTransform: {fileID: 80739638}
-  _imageWidth: 5.12
-  _coordinateX: 4.17
-  hasTransformed: 0
+  _imageWidth: 4.17
 --- !u!212 &180426409
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -483,7 +479,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bf9afc4bd66ffdb458676647f7ff9de4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8621c541fdc9c9b49a397c3248bf2627, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -507,9 +503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraTransform: {fileID: 80739638}
-  _imageWidth: 5.12
-  _coordinateX: 4.17
-  hasTransformed: 0
+  _imageWidth: 4.17
 --- !u!1 &235133630
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,7 +514,6 @@ GameObject:
   m_Component:
   - component: {fileID: 235133631}
   - component: {fileID: 235133632}
-  - component: {fileID: 235133633}
   m_Layer: 0
   m_Name: Layer4
   m_TagString: Untagged
@@ -560,22 +553,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cameraTransfrom: {fileID: 80739638}
   _followFactor: 0
---- !u!114 &235133633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 235133630}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7038f5af8c6705c42b14a8bad1763cde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Num_Randomization: 1
-  Num_Texture: 1
-  m_folder: '{"guid":"384139fae40f2ea46a0bc56295358c94","path":"Assets/texture/test_parallaxbackground/Layer4"}'
-  texture_list: []
 --- !u!1 &377607016
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,9 +599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraTransform: {fileID: 80739638}
-  _imageWidth: 5.12
-  _coordinateX: 4.17
-  hasTransformed: 0
+  _imageWidth: 4.17
 --- !u!212 &377607019
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -723,9 +698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraTransform: {fileID: 80739638}
-  _imageWidth: 5.12
-  _coordinateX: 4.17
-  hasTransformed: 0
+  _imageWidth: 4.17
 --- !u!212 &392231960
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -775,7 +748,7 @@ SpriteRenderer:
   m_Size: {x: 5.12, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &413021614
@@ -788,7 +761,6 @@ GameObject:
   m_Component:
   - component: {fileID: 413021615}
   - component: {fileID: 413021616}
-  - component: {fileID: 413021617}
   m_Layer: 0
   m_Name: Layer3
   m_TagString: Untagged
@@ -828,22 +800,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cameraTransfrom: {fileID: 80739638}
   _followFactor: 0.3
---- !u!114 &413021617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413021614}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7038f5af8c6705c42b14a8bad1763cde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Num_Randomization: 1
-  Num_Texture: 1
-  m_folder: '{"guid":"45e5016798ea97f4fb34c35cc1e5fd33","path":"Assets/texture/test_parallaxbackground/Layer3"}'
-  texture_list: []
 --- !u!1 &469191208
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,9 +846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraTransform: {fileID: 80739638}
-  _imageWidth: 5.12
-  _coordinateX: 4.17
-  hasTransformed: 0
+  _imageWidth: 4.17
 --- !u!212 &469191211
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -942,7 +896,7 @@ SpriteRenderer:
   m_Size: {x: 5.12, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &489801534
@@ -1019,7 +973,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bf9afc4bd66ffdb458676647f7ff9de4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8621c541fdc9c9b49a397c3248bf2627, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1043,9 +997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraTransform: {fileID: 80739638}
-  _imageWidth: 5.12
-  _coordinateX: 4.17
-  hasTransformed: 0
+  _imageWidth: 4.17
 --- !u!1 &886256796
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,9 +1044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraTransform: {fileID: 80739638}
-  _imageWidth: 5.12
-  _coordinateX: 4.17
-  hasTransformed: 0
+  _imageWidth: 4.17
 --- !u!212 &886256799
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1157,7 +1107,6 @@ GameObject:
   m_Component:
   - component: {fileID: 895668552}
   - component: {fileID: 895668553}
-  - component: {fileID: 895668554}
   m_Layer: 0
   m_Name: Layer2
   m_TagString: Untagged
@@ -1197,22 +1146,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cameraTransfrom: {fileID: 80739638}
   _followFactor: 0.6
---- !u!114 &895668554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 895668551}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7038f5af8c6705c42b14a8bad1763cde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Num_Randomization: 1
-  Num_Texture: 1
-  m_folder: '{"guid":"eecc9d8290cfeb6468bb5b7e5ba22dea","path":"Assets/texture/test_parallaxbackground/Layer2"}'
-  texture_list: []
 --- !u!1 &1111914795
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,9 +1192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraTransform: {fileID: 80739638}
-  _imageWidth: 5.12
-  _coordinateX: 4.17
-  hasTransformed: 0
+  _imageWidth: 4.17
 --- !u!212 &1111914798
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1324,7 +1255,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1229587978}
   - component: {fileID: 1229587979}
-  - component: {fileID: 1229587980}
   m_Layer: 0
   m_Name: Layer5[Near]
   m_TagString: Untagged
@@ -1364,22 +1294,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cameraTransfrom: {fileID: 80739638}
   _followFactor: -0.3
---- !u!114 &1229587980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1229587977}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7038f5af8c6705c42b14a8bad1763cde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Num_Randomization: 1
-  Num_Texture: 1
-  m_folder: '{"guid":"4f6f708267075084fb65db1846c0abee","path":"Assets/texture/test_parallaxbackground/Layer5"}'
-  texture_list: []
 --- !u!1 &1244190333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,9 +1340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraTransform: {fileID: 80739638}
-  _imageWidth: 5.12
-  _coordinateX: 4.17
-  hasTransformed: 0
+  _imageWidth: 4.17
 --- !u!212 &1244190336
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1527,9 +1439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraTransform: {fileID: 80739638}
-  _imageWidth: 5.12
-  _coordinateX: 4.17
-  hasTransformed: 0
+  _imageWidth: 4.17
 --- !u!212 &1262247331
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1579,7 +1489,7 @@ SpriteRenderer:
   m_Size: {x: 5.12, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1454465038
@@ -1656,7 +1566,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bf9afc4bd66ffdb458676647f7ff9de4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8621c541fdc9c9b49a397c3248bf2627, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1680,9 +1590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraTransform: {fileID: 80739638}
-  _imageWidth: 5.12
-  _coordinateX: 4.17
-  hasTransformed: 0
+  _imageWidth: 4.17
 --- !u!1 &1547222059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,9 +1637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraTransform: {fileID: 80739638}
-  _imageWidth: 5.12
-  _coordinateX: 4.17
-  hasTransformed: 0
+  _imageWidth: 4.17
 --- !u!212 &1547222062
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1830,7 +1736,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1732555651}
   - component: {fileID: 1732555652}
-  - component: {fileID: 1732555653}
   m_Layer: 0
   m_Name: Layer1[Far]
   m_TagString: Untagged
@@ -1870,22 +1775,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cameraTransfrom: {fileID: 80739638}
   _followFactor: 0.9
---- !u!114 &1732555653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1732555650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7038f5af8c6705c42b14a8bad1763cde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Num_Randomization: 1
-  Num_Texture: 2
-  m_folder: '{"guid":"4017d8f7d8f6a3345a49d7651889fa38","path":"Assets/texture/test_parallaxbackground/Layer1"}'
-  texture_list: []
 --- !u!1 &1910640991
 GameObject:
   m_ObjectHideFlags: 0
@@ -1932,9 +1821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraTransform: {fileID: 80739638}
-  _imageWidth: 5.12
-  _coordinateX: 4.17
-  hasTransformed: 0
+  _imageWidth: 4.17
 --- !u!212 &1910640994
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2033,9 +1920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraTransform: {fileID: 80739638}
-  _imageWidth: 5.12
-  _coordinateX: 4.17
-  hasTransformed: 0
+  _imageWidth: 4.17
 --- !u!212 &1924421101
 SpriteRenderer:
   m_ObjectHideFlags: 0
