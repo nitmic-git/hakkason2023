@@ -1542,7 +1542,7 @@ MonoBehaviour:
   ArrowStorm: {fileID: 946996035413526910, guid: 44a20319cc644c644bacb84df38b947b, type: 3}
   fireAxis: {fileID: 2542896861300980361, guid: 159bbe9c5199ecd47bcb74133b64a89d, type: 3}
   fireRotateTime: 6
-  earthDragonSpear: {fileID: 4357565614352632171, guid: 3f39630e265809f4187d614cd8598aec, type: 3}
+  Spear: {fileID: 4357565614352632171, guid: 3f39630e265809f4187d614cd8598aec, type: 3}
   Bomb: {fileID: 1892793929181077709, guid: 4fed6330a9fbbfa4caa92c2eccece9ff, type: 3}
 --- !u!1 &544755438
 GameObject:
