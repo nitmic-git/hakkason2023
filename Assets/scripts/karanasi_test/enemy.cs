@@ -12,6 +12,12 @@ public class enemy : MonoBehaviour, IDamageable
     int attack;
     int money;
 
+    private static bool damageDisabled = false;
+    public static void DisableDamage(bool disable)
+    {
+        damageDisabled = disable;
+    }
+
     void Start()
     {
         maxHp = (int)GameMane.enemyInfo[enemyNumber, 1];
@@ -37,7 +43,7 @@ public class enemy : MonoBehaviour, IDamageable
                 { 
                 }
 
-                GameMane.playerHp -= attack;
+                if(!damageDisabled) GameMane.playerHp -= attack;
                 Damage(GameMane.playerAttack);
             }
             
