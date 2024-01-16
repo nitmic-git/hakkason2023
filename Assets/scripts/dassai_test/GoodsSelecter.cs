@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GoodsSelecter : MonoBehaviour
 {
+    //アイテム・装備購入画面で表示するボタン=品物を抽選する
     public GameObject[] Item = new GameObject[30];
     int selecter1;
     int selecter2;

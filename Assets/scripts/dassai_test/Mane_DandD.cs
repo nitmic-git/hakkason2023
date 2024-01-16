@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+//ドラッグ&ドラッグの機能を作ろうとした痕跡
 [RequireComponent(typeof(Image))]
 
 public class Mane_DandD : MonoBehaviour, IDragHandler, IBeginDragHandler, IDropHandler

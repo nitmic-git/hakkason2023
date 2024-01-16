@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+//装備品によるステータス変化や装備ごとの上げ幅を管理する
 public class Gene_Equipment : MonoBehaviour
 {
     int atack=0;
