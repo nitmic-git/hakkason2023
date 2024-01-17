@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/testScene/Seirios.title/title(\u4EEE).unity"
     guid: 4f6e53a286763b9478203ee251ac5fde
+  - enabled: 1
+    path: Assets/Scenes/TitleScene.unity
+    guid: e5a04e1f4a46b814e9668a10244be137
   m_configObjects: {}
