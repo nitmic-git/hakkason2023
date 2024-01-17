@@ -6,6 +6,7 @@ using System;
 
 public class Mane_PurchaseEquip : MonoBehaviour
 {
+    //装備品の購入・所持数の増減・金額の増加を管理する
     //costでお値段,ShowCostは値札の役割,itemNoは管理用にボタン一つ一つに割り当てる数字
     int cost;
     public GameObject ShowCost;

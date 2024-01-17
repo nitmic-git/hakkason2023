@@ -6,19 +6,25 @@ using System;
 
 public class Mane_PurchaseItem : MonoBehaviour
 {
+    //アイテムを購入して所持数を増やしたり、金額を増やしたりする
+    //装備とアイテム購入画面は共通であり、ここで購入画面の表示・非表示(・シーン遷移を)管理する
     //costでお値段,ShowCostは値札の役割,itemNoは管理用にボタン一つ一つに割り当てる数字
     int cost;
     public GameObject ShowCost;
     //それぞれ9個ある
     List<int> itemAmount = new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     [SerializeField] int itemNo;
+    public GameObject background;
+    bool isBackShown;
 
     void Start()
     {
+        isBackShown = true;
+        //case0を終了ボタンに割り当てる
         switch (itemNo)
         {
             case 0:
-                cost = 10;
+                cost = 0;
                 break;
 
             case 1:
@@ -62,13 +68,22 @@ public class Mane_PurchaseItem : MonoBehaviour
     //ボタンクリック時にアイテム数加算と値段を大体1.5倍に
     public void OnClick()
     {
-        itemAmount[itemNo]++;
-        Debug.Log(itemNo + "が"+cost+"で購入された");
-        cost = (int)Math.Round(1.5 * cost);
+        if (itemNo == 0)
+        {
+            isBackShown = false;
+        }
+        else
+        {
+            itemAmount[itemNo - 1]++;
+            Debug.Log(itemNo + "が" + cost + "で購入された");
+            cost = (int)Math.Round(1.5 * cost);
+        }
     }
 
     void Update()
     {
         ShowCost.GetComponent<Text>().text = cost + "で購入";
+        background.SetActive(isBackShown);
+        //もしisbackshown=falseならシーン遷移に移るとか...?
     }
 }

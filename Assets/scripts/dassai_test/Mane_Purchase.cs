@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//スキル購入画面で表示するボタンを抽選する
 public class Mane_Purchase : MonoBehaviour
 {
     public GameObject[] Item = new GameObject[30];
@@ -13,7 +14,7 @@ public class Mane_Purchase : MonoBehaviour
     void Start()
     {
 
-        for (int i = 0; i <= 12; i++)
+        for (int i = 0; i < 12; i++)
         {
             Item[i].SetActive(false);
             Debug.Log(i + "が非アクティブ化");
